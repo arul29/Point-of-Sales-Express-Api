@@ -3,8 +3,10 @@ const formRes = require("../Helpers/formRes.js");
 
 module.exports = {
   postTransaction: (req, res) => {
+    const date = new Date();
     const body = {
-      ...req.body
+      ...req.body,
+      created_at: date
     };
     transactionModel
       .postTransaction(body)
@@ -12,8 +14,10 @@ module.exports = {
       .catch(err => console.log(err));
   },
   postTransactionMenu: (req, res) => {
+    const date = new Date();
     const body = {
-      ...req.body
+      ...req.body,
+      created_at: date
     };
     transactionModel
       .postTransactionMenu(body)
