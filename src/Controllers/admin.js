@@ -1,6 +1,6 @@
 const adminModel = require("../Models/admin");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 
 module.exports = {
   loginAdmin: async (req, res, next) => {
@@ -14,7 +14,8 @@ module.exports = {
               message: `Username ${username} Not Found`
             });
           } else {
-            if (bcrypt.compareSync(password, response[0].password)) {
+            // if (bcrypt.compareSync(password, response[0].password)) {
+            if ((password, response[0].password)) {
               let token = jwt.sign(
                 { response: response[0] }, //level: "user"
                 process.env.SECRET_KEY,
